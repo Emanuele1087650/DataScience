@@ -39,6 +39,8 @@ Implementazione di un **chatbot conversazionale intelligente** tramite **Rasa**,
 
 📁 Cartella: `Chatbot`
 
+📌 **Nota**: all'interno della cartella del progetto è presente un file `README.md` specifico con tutte le istruzioni dettagliate per l'installazione e l'utilizzo del chatbot.
+
 ---
 
 ### 5. 📝 NLP Tasks: Text Classification & Keyphrase Extraction
