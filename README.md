@@ -8,14 +8,14 @@ Questa repository raccoglie **cinque progetti** sviluppati durante il corso di *
 Questo progetto affronta tre ambiti fondamentali del machine learning:
 - **Classificazione**: modelli supervisionati per la predizione di classi (es. Random Forest, SVM).
 - **Clustering**: tecniche non supervisionate per l'identificazione di gruppi nei dati (es. K-Means, DBSCAN).
-- **Serie temporali**: analisi e previsione di dati temporali tramite modelli come ARIMA e Prophet.
+- **Serie temporali**: analisi e previsione di dati temporali tramite modelli come ARIMA.
 
 📁 Cartella: `Python`
 
 ---
 
 ### 2. 💬 Sentiment Analysis con BERT
-In questo progetto viene utilizzato **BERT (Bidirectional Encoder Representations from Transformers)** per effettuare l'analisi del sentiment su testi. Il modello è stato fine-tuned su dataset annotati per determinare il tono (positivo, negativo, neutro) dei testi.
+In questo progetto viene utilizzato **BERT (Bidirectional Encoder Representations from Transformers)** per effettuare Sentiment Analysis su testi provevienti da social media. Il modello è stato fine-tuned su dataset annotati per determinare il tono (positivo, negativo) dei testi.
 
 📁 Cartella: `Bert`
 
@@ -25,7 +25,7 @@ In questo progetto viene utilizzato **BERT (Bidirectional Encoder Representation
 Analisi di reti sociali utilizzando il pacchetto Python **NetworkX**. Il progetto include:
 - Costruzione di grafi orientati e non.
 - Calcolo di metriche di centralità.
-- Community detection (Louvain, Girvan-Newman).
+- Community detection (Louvain).
 - Visualizzazione delle reti.
 
 📁 Cartella: `SocialNetworkAnalysis`
@@ -35,7 +35,6 @@ Analisi di reti sociali utilizzando il pacchetto Python **NetworkX**. Il progett
 ### 4. 🤖 Chatbot per il Turismo con Rasa
 Implementazione di un **chatbot conversazionale intelligente** tramite **Rasa**, in grado di:
 - Cercare hotel, voli e attrazioni turistiche.
-- Rispondere a domande frequenti.
 - Gestire conversazioni con memoria del contesto.
 
 📁 Cartella: `Chatbot`
