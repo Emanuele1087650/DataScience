@@ -1,1 +1,7 @@
-
+.rasa
+Chatbot/rasa/models
+*.pyc
+Chatbot/models
+.DS_Store
+.env
+Chatbot/actions/__pycache__/
