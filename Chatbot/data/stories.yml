@@ -1,0 +1,283 @@
+version: "3.0"
+
+stories:
+
+  - story: storia di saluto
+    steps:
+      - intent: greet
+      - action: utter_greet
+      
+  - story: storia di congedo
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: storia di fallback
+    steps:
+      - intent: nlu_fallback
+      - action: utter_fallback
+
+  - story: ricerca hotel
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: search_hotels
+      - action: hotel_form
+      - active_loop: hotel_form
+      - slot_was_set:
+        - requested_slot: luogo_name
+      - slot_was_set:
+        - requested_slot: partenza
+      - slot_was_set:
+        - requested_slot: ritorno
+      - slot_was_set:
+        - requested_slot: num_persone
+      - slot_was_set:
+        - requested_slot: num_camere
+      - active_loop: null
+      - action: action_search_hotels
+      
+  - story: nuova ricerca hotels
+    steps:
+      - intent: new_search_hotels
+      - action: action_reset_slots
+      - action: hotel_form
+      - active_loop: hotel_form
+      - slot_was_set:
+        - requested_slot: luogo_name
+      - slot_was_set:
+        - requested_slot: partenza
+      - slot_was_set:
+        - requested_slot: ritorno
+      - slot_was_set:
+        - requested_slot: num_persone
+      - slot_was_set:
+        - requested_slot: num_camere
+      - active_loop: null
+      - action: action_search_hotels
+
+  - story: ricerca e poi mostra hotel
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: search_hotels
+      - action: hotel_form
+      - active_loop: hotel_form
+      - slot_was_set:
+        - requested_slot: luogo_name
+      - slot_was_set:
+        - requested_slot: partenza
+      - slot_was_set:
+        - requested_slot: ritorno
+      - slot_was_set:
+        - requested_slot: num_persone
+      - slot_was_set:
+        - requested_slot: num_camere
+      - active_loop: null
+      - action: action_search_hotels
+      - intent: search_hotels
+      - action: hotel_form
+      - active_loop: hotel_form
+      - slot_was_set:
+        - requested_slot: luogo_name
+      - slot_was_set:
+        - requested_slot: partenza
+      - slot_was_set:
+        - requested_slot: ritorno
+      - slot_was_set:
+        - requested_slot: num_persone
+      - slot_was_set:
+        - requested_slot: num_camere
+      - active_loop: null
+      - action: action_search_hotels
+
+  - story: info hotel
+    steps:
+      - intent: info_hotel
+      - action: action_info_hotel
+
+  - story: mostra camere
+    steps: 
+      - intent: mostra_camere
+      - action: action_mostra_camere
+
+  - story: mostra attrazioni vicine
+    steps: 
+      - intent: mostra_attrazioni_vicine
+      - action: action_near_attractions
+
+  - story: cerca voli
+    steps: 
+      - intent: search_flights
+      - action: flights_form
+      - active_loop: flights_form
+      - slot_was_set:
+        - requested_slot: from_name
+      - slot_was_set:
+        - requested_slot: to_name
+      - slot_was_set:
+        - requested_slot: partenza
+      - slot_was_set:
+        - requested_slot: ritorno
+      - slot_was_set:
+        - requested_slot: num_persone
+      - active_loop: null
+      - action: action_search_flights
+
+  - story: nuova ricerca voli
+    steps: 
+      - intent: new_search_flights
+      - action: action_reset_slots
+      - action: flights_form
+      - active_loop: flights_form
+      - slot_was_set:
+        - requested_slot: from_name
+      - slot_was_set:
+        - requested_slot: to_name
+      - slot_was_set:
+        - requested_slot: partenza
+      - slot_was_set:
+        - requested_slot: ritorno
+      - slot_was_set:
+        - requested_slot: num_persone
+      - active_loop: null
+      - action: action_search_flights
+
+  - story: cerca e poi mostra voli
+    steps: 
+      - intent: search_flights
+      - action: flights_form
+      - active_loop: flights_form
+      - slot_was_set:
+        - requested_slot: from_name
+      - slot_was_set:
+        - requested_slot: to_name
+      - slot_was_set:
+        - requested_slot: partenza
+      - slot_was_set:
+        - requested_slot: ritorno
+      - slot_was_set:
+        - requested_slot: num_persone
+      - active_loop: null
+      - action: action_search_flights
+      - intent: search_flights
+      - action: flights_form
+      - active_loop: flights_form
+      - slot_was_set:
+        - requested_slot: from_name
+      - slot_was_set:
+        - requested_slot: to_name
+      - slot_was_set:
+        - requested_slot: partenza
+      - slot_was_set:
+        - requested_slot: ritorno
+      - slot_was_set:
+        - requested_slot: num_persone
+      - active_loop: null
+      - action: action_search_flights
+
+  - story: Visualizza scali
+    steps:
+      - intent: show_scali
+      - action: action_show_scali
+
+  - story: Prenota volo
+    steps:
+      - intent: prenota_volo
+      - action: action_prenota_volo
+
+  - story: Prenota camera
+    steps:
+      - intent: prenota_camera
+      - action: action_prenota_camera
+
+  - story: Prenotazione lunga camera e volo
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: search_hotels
+      - action: hotel_form
+      - active_loop: hotel_form
+      - slot_was_set:
+        - requested_slot: luogo_name
+      - slot_was_set:
+        - requested_slot: partenza
+      - slot_was_set:
+        - requested_slot: ritorno
+      - slot_was_set:
+        - requested_slot: num_persone
+      - slot_was_set:
+        - requested_slot: num_camere
+      - active_loop: null
+      - action: action_search_hotels
+      - intent: search_flights
+      - action: flights_form
+      - active_loop: flights_form
+      - slot_was_set:
+        - requested_slot: from_name
+      - slot_was_set:
+        - requested_slot: to_name
+      - slot_was_set:
+        - requested_slot: partenza
+      - slot_was_set:
+        - requested_slot: ritorno
+      - slot_was_set:
+        - requested_slot: num_persone
+      - active_loop: null
+      - action: action_search_flights
+
+  - story: Prenotazione lunga camera e volo 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: search_flights
+      - action: flights_form
+      - active_loop: flights_form
+      - slot_was_set:
+        - requested_slot: from_name
+      - slot_was_set:
+        - requested_slot: to_name
+      - slot_was_set:
+        - requested_slot: partenza
+      - slot_was_set:
+        - requested_slot: ritorno
+      - slot_was_set:
+        - requested_slot: num_persone
+      - active_loop: null
+      - action: action_search_flights
+      - intent: search_hotels
+      - action: hotel_form
+      - active_loop: hotel_form
+      - slot_was_set:
+        - requested_slot: luogo_name
+      - slot_was_set:
+        - requested_slot: partenza
+      - slot_was_set:
+        - requested_slot: ritorno
+      - slot_was_set:
+        - requested_slot: num_persone
+      - slot_was_set:
+        - requested_slot: num_camere
+      - active_loop: null
+      - action: action_search_hotels
+
+  - story: Storia itinerario con slot
+    steps:
+    - intent: richiedi_itinerario_economico
+    - action: action_reset_slots
+    - action: itinerary_form
+    - active_loop: itinerary_form
+    - slot_was_set:
+      - requested_slot: from_name
+    - slot_was_set:
+      - requested_slot: to_name
+    - slot_was_set:
+      - requested_slot: partenza
+    - slot_was_set:
+      - requested_slot: ritorno
+    - slot_was_set:
+      - requested_slot: num_persone
+    - slot_was_set:
+      - requested_slot: num_camere
+    - active_loop: null
+    - action: action_create_itinerary

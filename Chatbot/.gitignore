@@ -1,0 +1,4 @@
+.rasa
+.env
+actions/__pycache__/
+models/

@@ -1,0 +1,299 @@
+version: "3.0"
+
+nlu:
+
+  - intent: start
+    examples: |
+      - start
+      - open
+      - begin
+      - init
+
+  - intent: greet
+    examples: |
+      - ciao
+      - ciao, come stai?
+      - hey
+      - buongiorno
+      - buonasera
+      - salve
+      - ehi, come va?
+      - hey, come posso prenotare un hotel?
+      - ciao, hai un minuto?
+      - ehi, tutto bene?
+      - hey, come procede?
+      - salve, mi senti?
+      - ciao a tutti
+  
+  - intent: goodbye
+    examples: |
+      - ciao, a presto
+      - arrivederci
+      - grazie, ci sentiamo dopo
+      - ci vediamo
+      - addio
+      - grazie di tutto, a presto
+      - ci risentiamo più tardi
+      - grazie, alla prossima
+  
+  - intent: search_hotels
+    examples: |
+      - Vorrei cercare un hotel
+      - Ho bisogno di un hotel, puoi aiutarmi?
+      - Cerco un hotel per il mio soggiorno
+      - Mi serve un albergo per il viaggio
+      - Voglio trovare un posto dove dormire
+      - Puoi consigliarmi un hotel?
+      - Dove posso prenotare un albergo?
+      - Quali hotel ci sono disponibili?
+      - Sto cercando un hotel economico
+      - Vorrei un hotel di lusso
+      - Trova un hotel per me
+      - Mi puoi aiutare a cercare un hotel?
+      - Voglio prenotare un albergo
+      - Mi serve un hotel per [3](num_persone) persone
+      - Mi serve una stanza per il weekend
+      - Puoi cercare un hotel a [Roma](luogo_name)?
+      - Trova un alloggio a [Milano](luogo_name)
+      - Cerco un hotel vicino al centro
+      - Mi serve un hotel nei giorni dal [2025-04-02](partenza) al [2025-04-08](ritorno)
+      - Ho bisogno di un albergo vicino all'aeroporto
+      - Quali sono gli hotel migliori a [Parigi](luogo_name)?
+      - Mostrami hotel con piscina
+      - Cerco un posto dove dormire per [2](num_persone) persone
+      - Mi serve un alloggio dal [2025-03-13](partenza) al [2025-03-15](ritorno)
+      - Cerco un hotel per un viaggio d'affari
+      - Mostrami di nuovo gli hotel
+      - Mostrami di nuovo la lista degli hotel
+      - Quali erano gli hotel disponibili?
+      - Rifammi vedere l'elenco degli hotel
+      - Voglio rivedere gli hotel suggeriti
+      - Puoi ripetere la lista degli hotel?
+      - Rivediamo gli hotel trovati?
+      - Quali erano gli alberghi che avevi trovato?
+      - Vorrei rivedere gli alloggi suggeriti
+      - Ripropormi gli hotel trovati prima
+      - Voglio vedere di nuovo le strutture disponibili
+      - Mostrami le opzioni di hotel di prima
+      - Quali erano gli alberghi consigliati?
+      - Puoi farmi rivedere la lista dei migliori hotel?
+
+  - intent: new_search_hotels
+    examples: |
+      - Voglio cercare un nuovo hotel
+      - Inizia una nuova ricerca per gli hotel
+      - Resetta la ricerca degli hotel
+      - Riparti da zero per trovare un hotel
+      - Voglio azzerare la ricerca degli hotel
+      - Cerco un nuovo hotel, resettando la ricerca precedente
+      - Nuova ricerca per hotel
+      - Riparte la ricerca degli hotel
+      - Voglio trovare un hotel, annullando la ricerca attuale
+      - Per favore, resetta la ricerca degli hotel e inizia da capo
+
+  - intent: info_hotel
+    examples: |
+      - Mostrami le informazioni
+      - Fammi vedere le info dell'hotel
+      - Info hotel
+      - Maggiori informazioni hotel
+      - Dimmi di più su [Grand Hotel](nome_hotel)
+      - Voglio sapere di più su [Hotel Luna](nome_hotel)
+      - Quali servizi offre il [Ritz](nome_hotel)?
+      - Dammi informazioni su [Palace Hotel](nome_hotel)
+      - Puoi parlarmi del [Hilton](nome_hotel)?
+      - Voglio conoscere i dettagli del [A3passi](nome_hotel)
+      - Quali comfort ci sono al [Mariott](nome_hotel)?
+      - Mi dai una panoramica sul [Best Western](nome_hotel)?
+      - Che tipo di hotel è il [Plaza Hotel](nome_hotel)?
+      - Quali servizi sono inclusi al [Sheraton](nome_hotel)?
+      - Parlami del [Hotel Excelsior](nome_hotel)
+      - Cosa include il soggiorno al [Four Seasons](nome_hotel)?
+      - Voglio sapere quali servizi ci sono al [Radisson Blu](nome_hotel)
+      - Quali caratteristiche ha il [Westin](nome_hotel)?
+      - Quali sono le recensioni per il [Hotel Roma](nome_hotel)?
+      - Il [Golden Tulip](nome_hotel) offre la colazione inclusa?
+      - Mi puoi dire di più sul [Hotel La Perla](nome_hotel)?
+      - Voglio informazioni sui servizi del [Relais & Châteaux](nome_hotel)
+      - Quali strutture ha il [Hotel Splendid](nome_hotel)?
+      - Che tipo di alloggio è il [B&B BellaVista](nome_hotel)?
+      - Puoi dirmi che tipo di esperienza offre [Agriturismo da Silvio](nome_hotel)?
+
+  - intent: mostra_camere
+    examples: |
+      - Mostrami le camere
+      - Quali camere ha disponibili?
+      - Mostra camere
+      - camere
+      - Mostra le camere di [Grand Hotel](nome_hotel)
+      - Quali stanze ci sono a [Hotel Luna](nome_hotel)?
+      - Voglio vedere le camere del [Ritz](nome_hotel)
+      - Dammi informazioni sulle camere di [Palace Hotel](nome_hotel)
+      - Puoi mostrarmi le stanze disponibili al [Hilton](nome_hotel)?
+      - Fammi vedere le camere di [NH Ancona](nome_hotel)
+      - Mostrami le stanze di [A3passi](nome_hotel)
+      - Quali sono le camere disponibili al [Mariott](nome_hotel)?
+      - Mi fai vedere le stanze del [Best Western](nome_hotel)?
+      - Voglio conoscere i dettagli delle camere del [Plaza Hotel](nome_hotel)
+      - Puoi dirmi quali camere offre il [Sheraton](nome_hotel)?
+      - Elenca le stanze del [Hotel Excelsior](nome_hotel)
+      - Quali tipi di camere ha il [Four Seasons](nome_hotel)?
+      - Mostra le camere che posso prenotare al [Radisson Blu](nome_hotel)
+      - Ho bisogno di vedere le stanze del [Westin](nome_hotel)
+      - Che camere ci sono al [Hotel Roma](nome_hotel)?
+      - Quali stanze sono disponibili al [Golden Tulip](nome_hotel)?
+      - Voglio sapere di più sulle camere del [Hotel La Perla](nome_hotel)
+      - Puoi farmi vedere le foto delle stanze del [Relais & Châteaux](nome_hotel)?
+      - Ci sono suite disponibili al [Hotel Splendid](nome_hotel)?
+      - Mostrami i dettagli delle stanze al [B&B BellaVista](nome_hotel)
+      - Quali opzioni di camera offre il [Hotel Milano](nome_hotel)?
+      - Puoi dirmi che camere ci sono presso [Agriturismo da Silvio](nome_hotel)?
+
+  - intent: mostra_attrazioni_vicine
+    examples: |
+      - Quali sono le attrazioni vicino all'hotel [Hotel Roma](nome_hotel)?
+      - Cosa posso visitare vicino a [Grand Hotel Milano](nome_hotel)?
+      - Mostrami le attrazioni turistiche vicino a [Hotel Bella Vista](nome_hotel)
+      - Quali punti di interesse ci sono vicino a [Hotel Riviera](nome_hotel)?
+      - Attrazioni turistiche vicino a [Hotel Centrale](nome_hotel)
+      - Cosa c'è da vedere nei pressi di [Hotel Paradiso](nome_hotel)?
+      - Quali monumenti ci sono vicino a [Hotel Lux](nome_hotel)?
+      - Voglio sapere cosa posso visitare intorno a [Hotel Splendido](nome_hotel)
+      - Quali sono le attrazioni vicine?
+      - Cosa posso visitare nei dintorni?
+      - Mostrami le attrazioni vicino al mio hotel
+      - Quali luoghi interessanti ci sono qui vicino?
+      - Voglio vedere le attrazioni più vicine
+      - Cosa c'è da visitare nei paraggi?
+      - Puoi suggerirmi alcuni posti da vedere vicino all'albergo?
+      - Mi fai un elenco delle attrazioni turistiche vicine?
+      - Quali attrazioni posso visitare nei pressi di [Royal Palace Hotel](nome_hotel)?
+      - Cosa c'è di bello vicino a [Sunset Beach Hotel](nome_hotel)?
+      - Quali musei sono vicini al [City Center Hotel](nome_hotel)?
+      - Mostrami i punti di interesse vicino a [Luxury Grand Hotel](nome_hotel)
+      - C'è qualcosa di interessante da vedere nei pressi del [Ocean View Hotel](nome_hotel)?
+      - Voglio scoprire le attrazioni vicino al [Mountain Resort Hotel](nome_hotel)
+      - Che attrazioni ci sono nei pressi del [Park Avenue Hotel](nome_hotel)?
+      - Puoi mostrarmi le attrazioni turistiche vicino al [Green Valley Hotel](nome_hotel)?
+      - Cosa posso fare nei dintorni di [Blue Lagoon Hotel](nome_hotel)?
+
+  - intent: search_flights
+    examples: |
+      - Puoi consigliarmi un volo economico?
+      - Mi serve un volo per questa settimana
+      - Quali voli consigli?
+      - Cerca voli economici
+      - Voglio cercare un volo
+      - Ho bisogno di un volo, puoi aiutarmi?
+      - Vorrei prenotare un volo
+      - Cerca un volo per me
+      - Mi serve un volo per [Roma](to_name)
+      - Puoi trovare un volo da [Milano](from_name) a [to_name]()?
+      - Trova un volo economico per [New York](to_name)
+      - Mi aiuti a trovare un volo per la mia prossima vacanza?
+      - Voglio vedere i voli disponibili
+      - Mostrami le opzioni per i voli
+      - Mi serve un volo diretto a [Tokyo](to_name)
+      - Quali voli ci sono per [Londra](to_name) domani?
+      - Trova voli diretti per [Berlino](to_name)
+      - Voglio cercare un biglietto aereo
+      - Vorrei sapere quali sono i voli per il weekend
+      - Quali compagnie volano da [Napoli](from_name) a [Madrid](to_name)?
+      - Mostrami di nuovo i voli
+      - Quali erano i voli disponibili?
+      - Rifammi vedere l'elenco dei voli
+      - Voglio rivedere le opzioni di volo
+      - Fammi vedere ancora i voli trovati
+      - Puoi ripetere la lista dei voli?
+      - Rivediamo i voli disponibili?
+      - Quali erano i voli che avevi trovato?
+      - Vorrei rivedere i voli suggeriti
+      - Ripropormi i voli trovati prima
+
+  - intent: new_search_flights
+    examples: |
+      - Voglio cercare un nuovo volo
+      - Inizia una nuova ricerca per i voli
+      - Resetta la ricerca dei voli
+      - Riparti da zero per trovare un volo
+      - Voglio azzerare la ricerca dei voli
+      - Cerco un nuovo volo, resettando la ricerca precedente
+      - Nuova ricerca per voli
+      - Riparte la ricerca dei voli
+      - Voglio trovare un volo, ma annulla la ricerca attuale
+      - Per favore, resetta la ricerca dei voli e inizia da capo
+
+  - intent: show_scali
+    examples: |
+      - Mostrami gli scali
+      - Visualizza scali per questa offerta
+      - Mostra gli scali per l'offerta [0](offer_index)
+      - Quali sono gli scali di questo volo?
+      - Elenca gli scali per il volo [1](offer_index)
+      - Voglio vedere gli scali previsti
+      - Puoi mostrarmi gli scali per questa tratta?
+      - Quanti scali ci sono per il volo selezionato?
+      - Dimmi dove fa scalo questo volo
+      - Dove devo fare scalo per arrivare a destinazione?
+      - Puoi dirmi tutti gli scali previsti?
+      - Voglio conoscere gli aeroporti di scalo per questa offerta
+      - Quali aeroporti sono previsti negli scali?
+      - Mostrami le città di scalo per questo volo
+      - Quali sono le tappe intermedie di questo volo?
+      - Questo volo ha scali? Se sì, quali?
+      - Quali scali sono previsti nel volo [2](offer_index)?
+      - Visualizza il percorso del volo con gli scali
+      - Puoi darmi i dettagli sugli scali per l'offerta [3](offer_index)?
+      - Voglio sapere quanti e quali scali ci sono per il volo [4](offer_index)
+      - Ci sono scali per questa tratta? Se sì, dove?
+
+  - intent: prenota_volo
+    examples: |
+      - Prenota volo
+      - Prenotami un volo
+      - Voglio prenotare un volo
+      - Per favore, prenota un volo per me
+      - Prenota questo volo
+      - Prenotami il volo che mi hai suggerito
+      - Vorrei prenotare il volo
+      - Mi puoi prenotare un volo?
+      - Prenota il volo adesso
+      - Prenota un volo per me
+      - Puoi prenotare un volo?
+      - Prenotami il volo disponibile
+      - Prenota il volo [0](offer_index)
+      - Prenota il volo con indice [2](offer_index)
+      - Prenota questo volo [3](offer_index)
+
+  - intent: prenota_camera
+    examples: |
+      - Prenota una camera
+      - Vorrei prenotare una camera
+      - Prenota la camera [0](id_camera)
+      - /prenota_camera{"id_camera": "1"}
+      
+  - intent: richiedi_itinerario_economico
+    examples: |
+      - Vorrei l'itinerario più economico
+      - Mi serve il pacchetto più economico
+      - Voglio trovare volo e hotel al minor prezzo
+      - Mi cerchi il viaggio a costo più basso?
+      - Vorrei un itinerario che costi il meno possibile
+      - Voglio il volo e l'albergo più economici
+      - Puoi trovarmi l'opzione di viaggio più economica?
+      - Mostrami l'itinerario con il miglior prezzo
+      - Voglio spendere il meno possibile per il mio viaggio
+      - Qual è il pacchetto viaggio più conveniente?
+      - Trova la soluzione più economica per volo e hotel
+      - Cerco l'opzione di viaggio più vantaggiosa
+      - Mi puoi suggerire un viaggio low-cost?
+      - Mostrami il miglior affare per volo e hotel
+      - Voglio un pacchetto viaggio economico
+      - Qual è la combinazione di volo e hotel più conveniente?
+      - Aiutami a trovare l'itinerario meno costoso
+      - Cerca l'offerta più economica disponibile
+      - Qual è il modo più economico per viaggiare?
+      - Trova il miglior compromesso tra prezzo e qualità
+      - Voglio il volo e l'hotel più accessibili
+      - Dammi l'itinerario più economico che trovi
+      - Puoi mostrarmi la combinazione di viaggio più conveniente?

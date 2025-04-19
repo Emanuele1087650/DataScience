@@ -1,0 +1,27 @@
+version: "3.0"
+
+rules:
+
+  - rule: Start the conversation
+    steps: 
+      - intent: start
+      - action: action_reset_slots
+      - action: utter_start
+
+  # Regola: Risposta ai saluti
+  - rule: Risposta ai saluti
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  # Regola: Risposta al congedo
+  - rule: Risposta al congedo
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  # Regola: Fallback (quando RASA non capisce)
+  - rule: fallback generico
+    steps:
+      - intent: nlu_fallback
+      - action: utter_fallback

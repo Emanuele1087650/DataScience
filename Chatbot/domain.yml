@@ -1,0 +1,284 @@
+version: "3.1"
+
+intents:
+  - start
+  - greet
+  - goodbye
+  # Prenotazione hotel
+  - search_hotels
+  - new_search_hotels
+  - mostra_camere
+  - info_hotel
+  - prenota_camera
+  - mostra_attrazioni_vicine
+  # Prenotazione voli
+  - search_flights
+  - new_search_flights
+  - show_scali
+  - prenota_volo
+  # Itinerario economico
+  - richiedi_itinerario_economico
+
+actions:
+  - utter_start
+  - utter_greet
+  - utter_goodbye
+  - utter_fallback
+  - utter_ask_luogo
+  - utter_ask_partenza
+  - utter_ask_ritorno
+  - utter_ask_num_persone
+  - utter_ask_num_camere
+  - utter_conferma_camera
+  # Prenotazioni hotel
+  - action_search_hotels
+  - action_mostra_camere
+  - action_info_hotel
+  - validate_hotel_form
+  - action_prenota_camera
+  - action_near_attractions
+  # Prenotazione voli
+  - action_search_flights
+  - validate_flights_form
+  - action_show_scali
+  - action_prenota_volo
+  # Itinerario
+  - action_create_itinerary
+  - validate_itinerary_form
+  # Utils
+  - action_reset_slots
+
+entities:
+  - luogo
+  - luogo_name
+  - partenza
+  - ritorno
+  - num_persone
+  - num_camere
+  - camera
+  - nome_hotel
+  - hotels
+  - camere
+  - to
+  - to_name
+  - from
+  - from_name
+  - scali
+  - offer_index
+  - volo
+  - id_camera
+  - flight_index
+  - flights
+
+slots:
+  luogo:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
+
+  luogo_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+        - active_loop: hotel_form
+          requested_slot: luogo_name
+
+  partenza:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+        - active_loop: hotel_form
+          requested_slot: partenza
+        - active_loop: flights_form
+          requested_slot: partenza
+        - active_loop: itinerary_form
+          requested_slot: partenza
+
+  ritorno:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+        - active_loop: hotel_form
+          requested_slot: ritorno
+        - active_loop: flights_form
+          requested_slot: ritorno
+        - active_loop: itinerary_form
+          requested_slot: ritorno
+
+  num_persone:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+        - active_loop: hotel_form
+          requested_slot: num_persone
+        - active_loop: flights_form
+          requested_slot: num_persone
+        - active_loop: itinerary_form
+          requested_slot: num_persone
+
+  num_camere:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+        - active_loop: hotel_form
+          requested_slot: num_camere
+        - active_loop: itinerary_form
+          requested_slot: num_camere
+
+  hotels:
+    type: list
+    influence_conversation: false
+    mappings: 
+      - type: custom
+
+  nome_hotel:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  camere:
+    type: list
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  from:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
+
+  from_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+        - active_loop: flights_form
+          requested_slot: from_name
+        - active_loop: itinerary_form
+          requested_slot: from_name
+
+  to:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
+
+  to_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+        - active_loop: flights_form
+          requested_slot: to_name
+        - active_loop: itinerary_form
+          requested_slot: to_name
+
+  flights:
+    type: list
+    influence_conversation: false
+    mappings: 
+      - type: custom
+
+  scali:
+    type: list
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  flight_index:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: flight_index
+
+forms:
+  hotel_form:
+    required_slots:
+      - luogo_name
+      - partenza
+      - ritorno
+      - num_persone
+      - num_camere
+
+  flights_form:
+    required_slots:
+      - from_name
+      - to_name
+      - partenza
+      - ritorno
+      - num_persone
+
+  itinerary_form:
+    required_slots:
+      - from_name
+      - to_name
+      - partenza
+      - ritorno
+      - num_persone
+      - num_camere
+
+responses:
+  utter_start:
+    - text: "Ciao!"
+
+  utter_greet:
+    - text: "Ciao!"
+
+  utter_goodbye:
+    - text: "Ciao!"
+
+  utter_fallback:
+    - text: "Errore"
+
+  utter_ask_luogo_name:
+    - text: "Dove vuoi andare?"
+
+  utter_ask_partenza:
+    - text: "Quando vuoi partire?"
+  
+  utter_ask_ritorno:
+    - text: "Quando vuoi tornare?"
+
+  utter_ask_num_persone:
+    - text: "In quanti siete?"
+
+  utter_ask_num_camere:
+    - text: "Quante camere volete?"
+
+  utter_ask_email:
+    - text: "Inserisci la tua email!"
+
+  utter_ask_camera:
+    - text: "Quale camera vuoi prenotare?"
+
+  utter_conferma_camera:
+    - text: "✅ La tua camera è stata prenotata con successo!"
+
+  utter_vedere_hotels:
+    - text: "❌ Devi prima vedere gli hotel disponibili!"
+
+  utter_ask_from_name:
+    - text: "Aereoporto di partenza:"
+  
+  utter_ask_to_name:
+    - text: "Aereoporto di arrivo:"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
