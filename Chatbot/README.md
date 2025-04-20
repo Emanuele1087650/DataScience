@@ -14,24 +14,24 @@ Questo documento guida l'installazione, la configurazione e l'utilizzo del chatb
 
 ---
 
-## 1. Creazione dell'ambiente Conda
-
-Esegui i seguenti comandi per preparare l'ambiente virtuale Conda:
-
-```bash
-conda create --name chatbot python=3.9
-conda activate chatbot
-```
-
----
-
-## 2. Clonazione del repository
+## 1. Clonazione del repository
 
 Esegui il comando seguente per clonare la repository e posizionarti nella cartella del progetto:
 
 ```bash
 git clone https://github.com/Emanuele1087650/DataScience
 cd Chatbot
+```
+
+---
+
+## 2. Creazione dell'ambiente Conda
+
+Esegui i seguenti comandi per preparare l'ambiente virtuale Conda:
+
+```bash
+conda create --name chatbot python=3.9
+conda activate chatbot
 ```
 
 ---
